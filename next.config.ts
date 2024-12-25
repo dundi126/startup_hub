@@ -9,13 +9,21 @@ const nextConfig: NextConfig = {
 		ignoreDuringBuilds: true,
 	},
 	images: {
-		dangerouslyAllowSVG: true,
+		domains: ["img.freepik.com"],
 		remotePatterns: [
 			{
 				protocol: "https",
-				hostname: "*",
+				hostname: "placehold.co",
+				port: "",
+				pathname: "/**", // Allow all paths
 			},
-		],
+			{
+				protocol: "https",
+				hostname: "www.google.com",
+				port: "",
+				pathname: "/**", // Allow all paths
+			},
+		], // Add the hostname here
 	},
 	experimental: {
 		ppr: "incremental",
@@ -30,11 +38,24 @@ const nextConfig: NextConfig = {
 
 // next.config.js
 module.exports = {
-  images: {
-    domains: ['img.freepik.com'], // Add the hostname here
-  },
+	images: {
+		domains: ["img.freepik.com"],
+		remotePatterns: [
+			{
+				protocol: "https",
+				hostname: "placehold.co",
+				port: "",
+				pathname: "/**", // Allow all paths
+			},
+			{
+				protocol: "https",
+				hostname: "www.google.com",
+				port: "",
+				pathname: "/**", // Allow all paths
+			},
+		], // Add the hostname here
+	},
 };
-
 
 // export default withSentryConfig(nextConfig, {
 // 	// For all available options, see:
